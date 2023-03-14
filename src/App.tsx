@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginForm from './components/Login/LogInForm';
+import ForgotPassword from './components/ForgotPasswordPage/ForgotPassword';
 
 function App() {
+
+  const handleSubmit = () => {
+    // Aquí puedes hacer lo que necesites con los datos de inicio de sesión
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginForm onLogin={function (username: string, password: string): void {
+            throw new Error('Function not implemented.');
+          }} />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+        </Routes>
+      </BrowserRouter>
+
+    </div >
+
+
   );
 }
 
